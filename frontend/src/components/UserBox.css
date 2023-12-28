@@ -1,6 +1,6 @@
 .UserBox button {
     width: 150px;
-    height: 80%;
+    height: 40px;
     margin: 5px;
     background-color: #72bbf4;
     border-radius: 10px;
@@ -9,4 +9,10 @@
 
 .UserBox button:hover {
     background-color: #51aaef;
+}
+
+@media (max-width: 426px) {
+    .UserBox {
+        flex-direction: row;
+    }
 }
