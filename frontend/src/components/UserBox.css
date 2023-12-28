@@ -1,0 +1,12 @@
+.UserBox button {
+    width: 150px;
+    height: 80%;
+    margin: 5px;
+    background-color: #72bbf4;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.UserBox button:hover {
+    background-color: #51aaef;
+}
