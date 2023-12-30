@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Main.css';
 import Product from '../components/Product';
-import image from '../img/image.jpg'
+import image from '../img/image.jpg';
 
-function Main() {
+function Main({setBasket}) {
 
   const[products, setProducts] = useState([])
 
@@ -20,7 +20,7 @@ function Main() {
 
   return (
     <div className="Main">
-      {products.map((item) => <Product key={item._id} image={image} title={item.title} price={item.price}/>)}
+      {products.map((item) => <Product key={item._id} id={item._id} image={image} title={item.title} price={item.price} setBasket={setBasket}/>)}
     </div>
   );
 }

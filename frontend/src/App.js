@@ -10,10 +10,11 @@ function App() {
 
   const[page, setPage] = useState('Main')
   const[modalBox, setModalBox] = useState('none')
+  const[basket, setBasket] = useState([])
 
   const pages = {
-    Main: <Main/>,
-    Basket: <Basket/>
+    Main: <Main setBasket={setBasket}/>,
+    Basket: <Basket basket={basket} setBasket={setBasket}/>
   }
 
   const modalBoxes = {
