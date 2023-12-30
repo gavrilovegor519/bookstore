@@ -1,6 +1,6 @@
 # ReactShop
 
-This is demo shop based on React.js on frontend, and Express + MongoDB on backend.
+This is demo shop based on React.js as frontend, and Express + MongoDB as backend.
 
 ## Available Scripts
 
