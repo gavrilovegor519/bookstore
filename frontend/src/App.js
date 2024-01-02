@@ -5,6 +5,8 @@ import Main from './views/Main';
 import Footer from './components/Footer';
 import Basket from './views/Basket';
 import ModalBox from './components/ModalBox';
+import Login from './components/Login';
+import Registration from './components/Registration';
 
 function App() {
 
@@ -19,8 +21,8 @@ function App() {
 
   const modalBoxes = {
     none: null,
-    Login: <ModalBox setModalBox = 'Login'/>,
-    Registration: <ModalBox setModalBox= 'Registration'/>
+    Login: <ModalBox setModalBox = {setModalBox}><Login/></ModalBox>,
+    Registration: <ModalBox setModalBox = {setModalBox}><Registration/></ModalBox>
   }
 
   return (

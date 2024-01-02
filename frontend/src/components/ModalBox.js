@@ -1,20 +1,13 @@
 import React from 'react';
 import './ModalBox.css';
-import Login from './Login';
-import Registration from './Registration';
 
-function ModalBox({setModalBox}) {
-
-  const modelBoxes = {
-    Login: <Login/>,
-    Registration: <Registration/>
-  }
+function ModalBox({setModalBox, children}) {
 
   return (
     <>
-        <div className="echo"></div>
+        <div className="echo" onClick={() => setModalBox('none')}></div>
         <div className="ModalBox">
-          {modelBoxes[setModalBox]}
+          {children}
         </div>
     </>
   );
