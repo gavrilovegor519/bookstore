@@ -6,9 +6,11 @@ function Basket({basket, setBasket}) {
   return (
     <div className="Basket">
       <h1>Корзина</h1>
+      <div className="BasketContent">
       {basket.map((item) => <ProductBasket key={item.id} id={item.id} 
                             image={item.image} title={item.title} 
                             price={item.price} setBasket={setBasket}/>)}
+      </div>
     </div>
   );
 }

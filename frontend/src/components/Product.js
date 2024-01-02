@@ -15,7 +15,7 @@ function Product({id, image, title, price, setBasket}) {
       <img src={product.image} alt='Изображение товара'/>
       <h1>{product.title}</h1>
       <p>{product.price} рублей</p>
-      <button className='buy'>Купить</button>
+      <button className='buy' onClick={() => setBasket(prevState => [...prevState, product])}>Купить</button>
     </div>
   );
 }
