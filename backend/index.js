@@ -60,7 +60,20 @@ app.post('/registration', async (req, res) => {
 app.post('/login', async (req, res) => {
     console.log(req.body)
     const {login, password} = req.body
-    const user = await User.findOne({login})
+    let user;
+
+    try {
+        user = await User.findOne({login})
+    } catch (err) {
+        res.json({
+            message: 'Неизвестная ошибка!'
+        })
+        .status(500)
+        console.error(err)
+
+        return;
+    }
+
     if (!user) {
         return res.status(400).json({message: 'Пользователь не найден!'})
     }
@@ -76,7 +89,19 @@ app.post('/login', async (req, res) => {
 })
 
 app.get('/products', async (req, res) => {
-    const products = await Product.find()
+    let products;
+
+    try {
+        products = await Product.find()
+    } catch (err) {
+        res.json({
+            message: 'Неизвестная ошибка!'
+        })
+        .status(500)
+        console.error(err)
+
+        return;
+    }
 
     res.json({
         data: products
