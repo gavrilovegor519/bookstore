@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 
-function Login() {
+function Login({setModalBox}) {
 
   function Log() {
     const login = document.getElementById('login').value
@@ -28,6 +28,8 @@ function Login() {
       console.log(result)
       localStorage.setItem('token', result.token)
     })
+
+    setModalBox('none')
   }
 
   return (

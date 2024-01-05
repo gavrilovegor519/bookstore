@@ -1,7 +1,7 @@
 import React from 'react';
 import './Registration.css';
 
-function Registration() {
+function Registration({setModalBox}) {
 
   function Reg() {
     const email = document.getElementById('email').value
@@ -27,6 +27,8 @@ function Registration() {
     })
     .then((result) => result.json())
     .then((result) => console.log(result))
+
+    setModalBox('none')
   }
 
   return (
