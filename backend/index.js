@@ -26,7 +26,32 @@ app.post('/registration', async (req, res) => {
     console.log(req.body)
     const {login, password, email} = req.body
     const user = new User({login, password, email})
-    await user.save()
+
+    try {
+        await user.save()
+    } catch (err) {
+        if (err && err.code !== 11000) {
+            res.json({
+                message: 'Неизвестная ошибка!'
+            })
+            .status(500)
+            console.error(err)
+
+            return;
+        }
+
+        //duplicate key
+        if (err && err.code === 11000) {
+            res.json({
+                message: 'Вы создали дубликата!'
+            })
+            .status(400)
+            console.error(err)
+
+            return;
+        }
+    }
+
     res.json({
         message: 'Вы успешно зарегистрировались!'
     })
