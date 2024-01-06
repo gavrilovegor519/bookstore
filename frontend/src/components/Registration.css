@@ -27,3 +27,8 @@
 .Registration button:hover {
     background-color: #51aaef;
 }
+
+.Registration #loginError {
+    color: red;
+    margin-top: 10px;
+}

@@ -27,3 +27,8 @@
 .Login button:hover {
     background-color: #51aaef;
 }
+
+.Login #loginError {
+    color: red;
+    margin-top: 10px;
+}
