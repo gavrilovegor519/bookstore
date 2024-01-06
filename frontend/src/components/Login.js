@@ -7,6 +7,13 @@ function Login({setModalBox}) {
     const login = document.getElementById('login').value
     const password = document.getElementById('pass').value
 
+    const validLogin = login.match(/^[a-z0-9]+$/i)
+
+    if (!validLogin || password.length === 0) {
+      document.getElementById('loginError').innerText = "Вы ввели данные неправильно!"
+      return
+    }
+
     const data = {
       login: login,
       password: password
@@ -35,9 +42,10 @@ function Login({setModalBox}) {
   return (
     <div className="Login">
       <h1>Логин:</h1>
-      <input id='login' placeholder='Логин'/>
-      <input id='pass' placeholder='Пароль'/>
+      <input id='login' placeholder='Логин' type='text'/>
+      <input id='pass' placeholder='Пароль' type='password'/>
       <button id='send' onClick={Log}>Войти</button>
+      <p id='loginError'></p>
     </div>
   );
 }

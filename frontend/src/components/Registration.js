@@ -8,6 +8,14 @@ function Registration({setModalBox}) {
     const login = document.getElementById('login').value
     const password = document.getElementById('pass').value
 
+    const validEmail = email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)
+    const validLogin = login.match(/^[a-z0-9]+$/i)
+
+    if (!validEmail || !validLogin || password.length === 0) {
+      document.getElementById('loginError').innerText = "Вы ввели данные неправильно!"
+      return
+    }
+
     const data = {
       email: email,
       login: login,
@@ -34,10 +42,11 @@ function Registration({setModalBox}) {
   return (
     <div className="Registration">
       <h1>Регистрация:</h1>
-      <input id='email' placeholder='E-Mail'/>
-      <input id='login' placeholder='Логин'/>
-      <input id='pass' placeholder='Пароль'/>
+      <input id='email' placeholder='E-Mail' type='email'/>
+      <input id='login' placeholder='Логин' type='text'/>
+      <input id='pass' placeholder='Пароль' type='password'/>
       <button id='send' onClick={Reg}>Войти</button>
+      <p id='loginError'></p>
     </div>
   );
 }
