@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-function Product({id, image, title, price, setBasket, setBasketPrice, setBasketQty}) {
+function Product({id, image, title, price, setBasket, setBasketPrice, setBasketQty, basket}) {
 
   const product = {
     id: id,
@@ -11,9 +11,15 @@ function Product({id, image, title, price, setBasket, setBasketPrice, setBasketQ
   }
 
   function addToBasket() {
-    setBasket(prevState => [...prevState, product])
-    setBasketPrice(current => ({counter: current.counter + product.price}))
-    setBasketQty(current => ({counter: current.counter + 1}))
+    const index = basket.findIndex(value => value.id === product.id)
+
+    if (index === -1) {
+      setBasket(prevState => [...prevState, product])
+      setBasketPrice(current => ({counter: current.counter + product.price}))
+      setBasketQty(current => ({counter: current.counter + 1}))
+    } else {
+      return
+    }
   }
 
   return (

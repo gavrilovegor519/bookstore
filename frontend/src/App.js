@@ -17,7 +17,7 @@ function App() {
   const[basketQty, setBasketQty] = useState({counter: 0})
 
   const pages = {
-    Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty}/>,
+    Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket}/>,
     Basket: <Basket basket={basket} setBasket={setBasket} basketPrice={basketPrice} setBasketPrice={setBasketPrice} basketQty={basketQty} setBasketQty={setBasketQty}/>
   }
 

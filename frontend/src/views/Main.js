@@ -3,7 +3,7 @@ import './Main.css';
 import Product from '../components/Product';
 import image from '../img/image.jpg';
 
-function Main({setBasket, setBasketPrice, setBasketQty}) {
+function Main({setBasket, setBasketPrice, setBasketQty, basket}) {
 
   const[products, setProducts] = useState([])
 
@@ -22,7 +22,8 @@ function Main({setBasket, setBasketPrice, setBasketQty}) {
     <div className="Main">
       {products.map((item) => <Product key={item._id} id={item._id} image={image} 
                               title={item.title} price={item.price} setBasket={setBasket} 
-                              setBasketPrice={setBasketPrice} setBasketQty={setBasketQty}/>)}
+                              setBasketPrice={setBasketPrice} setBasketQty={setBasketQty}
+                              basket={basket}/>)}
     </div>
   );
 }
