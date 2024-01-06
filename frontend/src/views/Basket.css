@@ -12,6 +12,20 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
+.Basket .order {
+    height: 50px;
+    width: 200px;
+    margin-top: 15px;
+    border-style: none;
+    background-color: #aad7fa;
+    border-radius: 10px;
+    font-size: 16pt;
+}
+
+.Basket .order:hover {
+    background-color: #78abd1;
+}
+
 @media (max-width: 768px) {
     .BasketContent {
         min-height: calc(100vh - 160px - 50px);

@@ -15,6 +15,7 @@ function Basket({basket, setBasket, basketPrice, setBasketPrice, basketQty, setB
       </div>
       <p>Количество товаров: {basketQty.counter}</p>
       <p>Общая стоимость товаров: {basketPrice.counter}</p>
+      <button className="order">Оформить заказ</button>
     </div>
   );
 }
