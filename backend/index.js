@@ -35,7 +35,6 @@ app.post('/registration', async (req, res) => {
                 message: 'Неизвестная ошибка!'
             })
             .status(500)
-            console.error(err)
 
             return;
         }
@@ -43,10 +42,10 @@ app.post('/registration', async (req, res) => {
         //duplicate key
         if (err && err.code === 11000) {
             res.json({
-                message: 'Вы создали дубликата!'
+                message: 'Попытка создания дубликата!'
             })
             .status(400)
-            console.error(err)
+            console.error('Попытка создания дубликата!')
 
             return;
         }
@@ -69,7 +68,6 @@ app.post('/login', async (req, res) => {
             message: 'Неизвестная ошибка!'
         })
         .status(500)
-        console.error(err)
 
         return;
     }
@@ -98,7 +96,6 @@ app.get('/products', async (req, res) => {
             message: 'Неизвестная ошибка!'
         })
         .status(500)
-        console.error(err)
 
         return;
     }
