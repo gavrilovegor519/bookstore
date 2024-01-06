@@ -12,6 +12,7 @@ function Product({id, image, title, price, setBasket, setBasketPrice, setBasketQ
 
   function addToBasket() {
     const index = basket.findIndex(value => value.id === product.id)
+    console.debug(index)
 
     if (index === -1) {
       setBasket(prevState => [...prevState, product])
