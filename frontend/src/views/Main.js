@@ -13,7 +13,7 @@ function Main({ setBasket, setBasketPrice, setBasketQty, basket, setMessage, set
     fetch(api)
       .then((result) => result.json())
       .then((result) => {
-        console.debug(result.data)
+        // console.debug(result.data)
         setProducts(result.data)
       })
   }, [])
