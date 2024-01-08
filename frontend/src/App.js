@@ -13,8 +13,8 @@ function App() {
   const[page, setPage] = useState('Main')
   const[modalBox, setModalBox] = useState('none')
   const[basket, setBasket] = useState([])
-  const[basketPrice, setBasketPrice] = useState({counter: 0})
-  const[basketQty, setBasketQty] = useState({counter: 0})
+  const[basketPrice, setBasketPrice] = useState(0)
+  const[basketQty, setBasketQty] = useState(0)
 
   const pages = {
     Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket}/>,

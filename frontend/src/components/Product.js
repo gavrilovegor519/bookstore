@@ -16,8 +16,8 @@ function Product({id, image, title, price, setBasket, setBasketPrice, setBasketQ
 
     if (index === -1) {
       setBasket(prevState => [...prevState, product])
-      setBasketPrice(current => ({counter: current.counter + product.price}))
-      setBasketQty(current => ({counter: current.counter + 1}))
+      setBasketPrice(current => current + product.price)
+      setBasketQty(current => current + 1)
     } else {
       return
     }

@@ -5,8 +5,8 @@ function ProductBasket({id, image, title, price, setBasket, setBasketPrice, setB
 
   function deleteBasket() {
     setBasket(current => current.filter(product => product.id !== id))
-    setBasketPrice(current => ({counter: current.counter - price}))
-    setBasketQty(current => ({counter: current.counter - 1}))
+    setBasketPrice(current => current - price)
+    setBasketQty(current => current - 1)
   }
 
   return (
