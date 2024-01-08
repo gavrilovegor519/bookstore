@@ -11,9 +11,9 @@ const Product = require('./models/Product')
 
 const app = express()
 
-const generateAccessToken = (id) => {
+const generateAccessToken = (id, login) => {
     const payload = {
-        id
+        id, login
     }
 
     return jsonwebtoken.sign(payload, secret, {expiresIn: '24h'})
@@ -78,7 +78,7 @@ app.post('/login', async (req, res) => {
     if (user.password !== password) {
         return res.status(400).json({message: 'Неверный логин или пароль!'})
     }
-    const jwtToken = generateAccessToken(user._id)
+    const jwtToken = generateAccessToken(user._id, user.login)
 
     res.json({
         message: 'Вы успешно вошли на сайт!',
