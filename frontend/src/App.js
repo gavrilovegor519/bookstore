@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header setPage = {setPage} setModalBox = {setModalBox} token={token}/>
+      <Header setPage = {setPage} setModalBox = {setModalBox} token={token} setToken={setToken}/>
       {pages[page]}
       {modalBoxes[modalBox]}
       <Footer/>
