@@ -5,9 +5,10 @@ const express = require('express')
 const cors = require('cors')
 const jsonwebtoken = require('jsonwebtoken')
 const mongoose = require('mongoose')
-const {secret} = require('./config')
+const { secret } = require('./config')
 const User = require('./models/User')
 const Product = require('./models/Product')
+const { jwtDecode } = require('jwt-decode')
 
 const app = express()
 
@@ -16,7 +17,7 @@ const generateAccessToken = (id, login) => {
         id, login
     }
 
-    return jsonwebtoken.sign(payload, secret, {expiresIn: '24h'})
+    return jsonwebtoken.sign(payload, secret, { expiresIn: '24h' })
 }
 
 app.use(cors())
@@ -24,8 +25,8 @@ app.use(express.json())
 
 app.post('/registration', async (req, res) => {
     console.log(req.body)
-    const {login, password, email} = req.body
-    const user = new User({login, password, email})
+    const { login, password, email } = req.body
+    const user = new User({ login, password, email })
 
     try {
         await user.save()
@@ -34,9 +35,9 @@ app.post('/registration', async (req, res) => {
             res.json({
                 message: 'Неизвестная ошибка!'
             })
-            .status(500)
+                .status(500)
 
-            return;
+            return
         }
 
         //duplicate key
@@ -44,10 +45,10 @@ app.post('/registration', async (req, res) => {
             res.json({
                 message: 'Попытка создания дубликата!'
             })
-            .status(400)
+                .status(400)
             console.error('Попытка создания дубликата!')
 
-            return;
+            return
         }
     }
 
@@ -58,25 +59,25 @@ app.post('/registration', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     console.log(req.body)
-    const {login, password} = req.body
-    let user;
+    const { login, password } = req.body
+    let user
 
     try {
-        user = await User.findOne({login})
+        user = await User.findOne({ login })
     } catch (err) {
         res.json({
             message: 'Неизвестная ошибка!'
         })
-        .status(500)
+            .status(500)
 
-        return;
+        return
     }
 
     if (!user) {
-        return res.status(400).json({message: 'Пользователь не найден!'})
+        return res.status(400).json({ message: 'Пользователь не найден!' })
     }
     if (user.password !== password) {
-        return res.status(400).json({message: 'Неверный логин или пароль!'})
+        return res.status(400).json({ message: 'Неверный логин или пароль!' })
     }
     const jwtToken = generateAccessToken(user._id, user.login)
 
@@ -86,8 +87,81 @@ app.post('/login', async (req, res) => {
     })
 })
 
+app.post('/user/changePassword', async (req, res) => {
+    console.log(req.body)
+    const { token, password } = req.body
+    let user
+
+    try {
+        user = await User.findOneAndUpdate({ login: jwtDecode(token).login },
+            { password: password }, { returnOriginal: false })
+
+        if (user === null) {
+            res.json({
+                message: 'Пользователь не найден!'
+            })
+                .status(400)
+        }
+    } catch (err) {
+        res.json({
+            message: 'Неизвестная ошибка!'
+        })
+            .status(500)
+
+        return
+    }
+
+    res.json({
+        message: 'Пароль изменён!',
+        newPassword: user.password
+    })
+})
+
+app.post('/user/changeEmail', async (req, res) => {
+    console.log(req.body)
+    const { token, email } = req.body
+    let user
+
+    try {
+        user = await User.findOneAndUpdate({ login: jwtDecode(token).login },
+            { password: email }, { returnOriginal: false })
+
+        if (user === null) {
+            res.json({
+                message: 'Пользователь не найден!'
+            })
+                .status(400)
+        }
+    } catch (err) {
+        if (err && err.code !== 11000) {
+            res.json({
+                message: 'Неизвестная ошибка!'
+            })
+                .status(500)
+
+            return
+        }
+
+        //duplicate key
+        if (err && err.code === 11000) {
+            res.json({
+                message: 'Попытка создания дубликата!'
+            })
+                .status(400)
+            console.error('Попытка создания дубликата!')
+
+            return
+        }
+    }
+
+    res.json({
+        message: 'E-Mail изменён!',
+        newEmail: user.email
+    })
+})
+
 app.get('/products', async (req, res) => {
-    let products;
+    let products
 
     try {
         products = await Product.find()
@@ -95,9 +169,9 @@ app.get('/products', async (req, res) => {
         res.json({
             message: 'Неизвестная ошибка!'
         })
-        .status(500)
+            .status(500)
 
-        return;
+        return
     }
 
     res.json({
