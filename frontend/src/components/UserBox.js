@@ -2,11 +2,9 @@ import React from 'react';
 import './UserBox.css';
 import {jwtDecode} from 'jwt-decode';
 
-function UserBox({setModalBox}) {
+function UserBox({setModalBox, token}) {
 
   function MultipleBoxes() {
-    const token = localStorage.getItem('token')
-
     if (token !== null) {
       const login = jwtDecode(token).login
 

@@ -15,6 +15,7 @@ function App() {
   const[basket, setBasket] = useState([])
   const[basketPrice, setBasketPrice] = useState(0)
   const[basketQty, setBasketQty] = useState(0)
+  const[token, setToken] = useState(localStorage.getItem('token'))
 
   const pages = {
     Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket}/>,
@@ -23,13 +24,13 @@ function App() {
 
   const modalBoxes = {
     none: null,
-    Login: <ModalBox setModalBox = {setModalBox}><Login setModalBox={setModalBox}/></ModalBox>,
+    Login: <ModalBox setModalBox = {setModalBox}><Login setModalBox={setModalBox} setToken={setToken}/></ModalBox>,
     Registration: <ModalBox setModalBox = {setModalBox}><Registration setModalBox={setModalBox}/></ModalBox>
   }
 
   return (
     <div className="App">
-      <Header setPage = {setPage} setModalBox = {setModalBox}/>
+      <Header setPage = {setPage} setModalBox = {setModalBox} token={token}/>
       {pages[page]}
       {modalBoxes[modalBox]}
       <Footer/>
