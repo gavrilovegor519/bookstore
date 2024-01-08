@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-function Product({ id, image, title, price, setBasket, setBasketPrice, setBasketQty, basket }) {
+function Product({ id, image, title, price, setBasket, setBasketPrice, setBasketQty, basket, setMessage, setModalBox }) {
 
   const product = {
     id: id,
@@ -21,6 +21,11 @@ function Product({ id, image, title, price, setBasket, setBasketPrice, setBasket
     } else {
       return
     }
+
+    setTimeout(() => {
+      setMessage('Товар добавлен в корзину.')
+      setModalBox('MessageBox')
+    }, 100)
   }
 
   return (

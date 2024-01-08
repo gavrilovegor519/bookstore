@@ -8,6 +8,7 @@ import ModalBox from './components/ModalBox';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import Cabinet from './views/Cabinet';
+import MessageBox from './components/MessageBox';
 
 function App() {
 
@@ -17,17 +18,19 @@ function App() {
   const [basketPrice, setBasketPrice] = useState(0)
   const [basketQty, setBasketQty] = useState(0)
   const [token, setToken] = useState(localStorage.getItem('token'))
+  const [message, setMessage] = useState('')
 
   const pages = {
-    Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket} />,
+    Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket} setMessage={setMessage} setModalBox={setModalBox} />,
     Basket: <Basket basket={basket} setBasket={setBasket} basketPrice={basketPrice} setBasketPrice={setBasketPrice} basketQty={basketQty} setBasketQty={setBasketQty} />,
     Cabinet: <Cabinet token={token} />
   }
 
   const modalBoxes = {
     none: null,
-    Login: <ModalBox setModalBox={setModalBox}><Login setModalBox={setModalBox} setToken={setToken} /></ModalBox>,
-    Registration: <ModalBox setModalBox={setModalBox}><Registration setModalBox={setModalBox} /></ModalBox>
+    Login: <ModalBox setModalBox={setModalBox}><Login setModalBox={setModalBox} setToken={setToken} setMessage={setMessage} /></ModalBox>,
+    Registration: <ModalBox setModalBox={setModalBox}><Registration setModalBox={setModalBox} setMessage={setMessage} /></ModalBox>,
+    MessageBox: <ModalBox setModalBox={setModalBox}><MessageBox setModalBox={setModalBox} message={message} /></ModalBox>
   }
 
   return (

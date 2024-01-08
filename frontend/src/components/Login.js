@@ -1,13 +1,15 @@
 import React from 'react';
 import './Login.css';
 
-function Login({ setModalBox, setToken }) {
+function Login({ setModalBox, setToken, setMessage }) {
 
   function Log() {
     const login = document.getElementById('login').value
     const password = document.getElementById('pass').value
 
     const validLogin = login.match(/^[a-z0-9]+$/i)
+
+    let message
 
     if (!validLogin || password.length === 0) {
       document.getElementById('loginError').innerText = "Вы ввели данные неправильно!"
@@ -32,12 +34,17 @@ function Login({ setModalBox, setToken }) {
     })
       .then((result) => result.json())
       .then((result) => {
-        console.log(result)
-        localStorage.setItem('token', result.token)
-        setToken(result.token)
+        message = result.message
+        if (result.token !== undefined) {
+          localStorage.setItem('token', result.token)
+          setToken(result.token)
+        }
       })
 
-    setModalBox('none')
+    setTimeout(() => {
+      setMessage(message)
+      setModalBox('MessageBox')
+    }, 100)
   }
 
   return (

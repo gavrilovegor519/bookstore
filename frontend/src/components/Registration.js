@@ -1,7 +1,7 @@
 import React from 'react';
 import './Registration.css';
 
-function Registration({ setModalBox }) {
+function Registration({ setModalBox, setMessage }) {
 
   function Reg() {
     const email = document.getElementById('email').value
@@ -10,6 +10,8 @@ function Registration({ setModalBox }) {
 
     const validEmail = email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)
     const validLogin = login.match(/^[a-z0-9]+$/i)
+
+    let message
 
     if (!validEmail || !validLogin || password.length === 0) {
       document.getElementById('loginError').innerText = "Вы ввели данные неправильно!"
@@ -34,9 +36,12 @@ function Registration({ setModalBox }) {
       body: JSON.stringify(data)
     })
       .then((result) => result.json())
-      .then((result) => console.log(result))
+      .then((result) => message = result.message)
 
-    setModalBox('none')
+    setTimeout(() => {
+      setMessage(message)
+      setModalBox('MessageBox')
+    }, 100)
   }
 
   return (
