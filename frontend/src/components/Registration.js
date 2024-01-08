@@ -24,8 +24,6 @@ function Registration({ setModalBox, setMessage }) {
       password: password
     }
 
-    console.log(data)
-
     const api = 'http://127.0.0.1:9001/registration'
 
     fetch(api, {
