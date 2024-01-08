@@ -23,7 +23,9 @@
 }
 
 @media (max-width: 426px) {
-    .Header ul, .Header {
+
+    .Header ul,
+    .Header {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
