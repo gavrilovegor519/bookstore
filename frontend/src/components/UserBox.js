@@ -14,7 +14,7 @@ function UserBox({ setModalBox, token, setToken, setPage }) {
     if (token !== null) {
       const login = jwtDecode(token).login
 
-      console.debug(login)
+      // console.debug(login)
 
       return (
         <div className="UserBox">
