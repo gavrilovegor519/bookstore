@@ -7,6 +7,7 @@ import Basket from './views/Basket';
 import ModalBox from './components/ModalBox';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import Cabinet from './views/Cabinet';
 
 function App() {
 
@@ -19,7 +20,8 @@ function App() {
 
   const pages = {
     Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket} />,
-    Basket: <Basket basket={basket} setBasket={setBasket} basketPrice={basketPrice} setBasketPrice={setBasketPrice} basketQty={basketQty} setBasketQty={setBasketQty} />
+    Basket: <Basket basket={basket} setBasket={setBasket} basketPrice={basketPrice} setBasketPrice={setBasketPrice} basketQty={basketQty} setBasketQty={setBasketQty} />,
+    Cabinet: <Cabinet token={token} />
   }
 
   const modalBoxes = {

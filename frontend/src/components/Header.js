@@ -9,7 +9,7 @@ function Header({ setPage, setModalBox, token, setToken }) {
         <li onClick={() => setPage('Main')}>Главная</li>
         <li onClick={() => setPage('Basket')}>Корзина</li>
       </ul>
-      <UserBox setModalBox={setModalBox} token={token} setToken={setToken} />
+      <UserBox setModalBox={setModalBox} token={token} setToken={setToken} setPage={setPage} />
     </div>
   );
 }

@@ -20,3 +20,10 @@
 .UserBox button:hover {
     background-color: #51aaef;
 }
+
+@media (max-width: 426px) {
+
+    .UserBox {
+        flex-direction: column;
+    }
+}

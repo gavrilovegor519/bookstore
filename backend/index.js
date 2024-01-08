@@ -124,7 +124,7 @@ app.post('/user/changeEmail', async (req, res) => {
 
     try {
         user = await User.findOneAndUpdate({ login: jwtDecode(token).login },
-            { password: email }, { returnOriginal: false })
+            { email: email }, { returnOriginal: false })
 
         if (user === null) {
             res.json({
