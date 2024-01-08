@@ -1,8 +1,8 @@
 import React from 'react';
 import './UserBox.css';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
-function UserBox({setModalBox, token, setToken}) {
+function UserBox({ setModalBox, token, setToken }) {
 
   function logout() {
     setToken(null)
@@ -15,7 +15,7 @@ function UserBox({setModalBox, token, setToken}) {
 
       console.debug(login)
 
-      return(
+      return (
         <div className="UserBox">
           <p>Привет, {login}!</p>
           <button>Личный кабинет</button>
@@ -24,7 +24,7 @@ function UserBox({setModalBox, token, setToken}) {
       )
     }
 
-    return(
+    return (
       <div className="UserBox">
         <button onClick={() => setModalBox('Login')}>Вход</button>
         <button onClick={() => setModalBox('Registration')}>Регистрация</button>
@@ -33,7 +33,7 @@ function UserBox({setModalBox, token, setToken}) {
   }
 
   return (
-    <MultipleBoxes/>
+    <MultipleBoxes />
   );
 }
 

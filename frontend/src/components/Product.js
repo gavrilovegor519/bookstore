@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-function Product({id, image, title, price, setBasket, setBasketPrice, setBasketQty, basket}) {
+function Product({ id, image, title, price, setBasket, setBasketPrice, setBasketQty, basket }) {
 
   const product = {
     id: id,
@@ -25,7 +25,7 @@ function Product({id, image, title, price, setBasket, setBasketPrice, setBasketQ
 
   return (
     <div className="Product">
-      <img src={product.image} alt='Изображение товара'/>
+      <img src={product.image} alt='Изображение товара' />
       <h1>{product.title}</h1>
       <p>{product.price} рублей</p>
       <button className='buy' onClick={() => addToBasket()}>Купить</button>

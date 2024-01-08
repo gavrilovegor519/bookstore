@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 
-function Login({setModalBox, setToken}) {
+function Login({ setModalBox, setToken }) {
 
   function Log() {
     const login = document.getElementById('login').value
@@ -30,12 +30,12 @@ function Login({setModalBox, setToken}) {
       },
       body: JSON.stringify(data)
     })
-    .then((result) => result.json())
-    .then((result) => {
-      console.log(result)
-      localStorage.setItem('token', result.token)
-      setToken(result.token)
-    })
+      .then((result) => result.json())
+      .then((result) => {
+        console.log(result)
+        localStorage.setItem('token', result.token)
+        setToken(result.token)
+      })
 
     setModalBox('none')
   }
@@ -43,8 +43,8 @@ function Login({setModalBox, setToken}) {
   return (
     <div className="Login">
       <h1>Логин:</h1>
-      <input id='login' placeholder='Логин' type='text'/>
-      <input id='pass' placeholder='Пароль' type='password'/>
+      <input id='login' placeholder='Логин' type='text' />
+      <input id='pass' placeholder='Пароль' type='password' />
       <button id='send' onClick={Log}>Войти</button>
       <p id='loginError'></p>
     </div>

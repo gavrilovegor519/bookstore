@@ -3,27 +3,27 @@ import './Main.css';
 import Product from '../components/Product';
 import image from '../img/image.jpg';
 
-function Main({setBasket, setBasketPrice, setBasketQty, basket}) {
+function Main({ setBasket, setBasketPrice, setBasketQty, basket }) {
 
-  const[products, setProducts] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     const api = 'http://127.0.0.1:9001/products'
 
     fetch(api)
-    .then((result) => result.json())
-    .then((result) => {
-      console.debug(result.data)
-      setProducts(result.data)
-    })
+      .then((result) => result.json())
+      .then((result) => {
+        console.debug(result.data)
+        setProducts(result.data)
+      })
   }, [])
 
   return (
     <div className="Main">
-      {products.map((item) => <Product key={item._id} id={item._id} image={image} 
-                              title={item.title} price={item.price} setBasket={setBasket} 
-                              setBasketPrice={setBasketPrice} setBasketQty={setBasketQty}
-                              basket={basket}/>)}
+      {products.map((item) => <Product key={item._id} id={item._id} image={image}
+        title={item.title} price={item.price} setBasket={setBasket}
+        setBasketPrice={setBasketPrice} setBasketQty={setBasketQty}
+        basket={basket} />)}
     </div>
   );
 }
