@@ -30,13 +30,13 @@ function Product({ id, image, title, price, setBasket, setBasketPrice, setBasket
 
   function AddToBasketButton() {
     if (token !== null) {
-      return(
+      return (
         <>
           <button className='buy' onClick={() => addToBasket()}>Купить</button>
         </>
       )
     } else {
-      return(
+      return (
         <>
           <p>Для добавления товара в корзину авторизуйтесь!</p>
         </>
@@ -49,7 +49,7 @@ function Product({ id, image, title, price, setBasket, setBasketPrice, setBasket
       <img src={product.image} alt='Изображение товара' />
       <h1>{product.title}</h1>
       <p>{product.price} рублей</p>
-      <AddToBasketButton/>
+      <AddToBasketButton />
     </div>
   );
 }

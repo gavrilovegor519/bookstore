@@ -5,7 +5,7 @@ import UserBox from './UserBox';
 function Header({ setPage, setModalBox, token, setToken }) {
   function BasketLink() {
     if (token !== null) {
-      return(
+      return (
         <>
           <li onClick={() => setPage('Basket')}>Корзина</li>
         </>
@@ -17,7 +17,7 @@ function Header({ setPage, setModalBox, token, setToken }) {
     <div className="Header">
       <ul>
         <li onClick={() => setPage('Main')}>Главная</li>
-        <BasketLink/>
+        <BasketLink />
       </ul>
       <UserBox setModalBox={setModalBox} token={token} setToken={setToken} setPage={setPage} />
     </div>

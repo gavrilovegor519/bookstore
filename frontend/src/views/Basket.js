@@ -5,7 +5,7 @@ import ProductBasket from '../components/ProductBasket';
 function Basket({ basket, setBasket, basketPrice, setBasketPrice, basketQty, setBasketQty }) {
   function ShowOrderButton() {
     if (basketQty > 0) {
-      return(<><button className="order">Оформить заказ</button></>)
+      return (<><button className="order">Оформить заказ</button></>)
     }
   }
 
@@ -21,7 +21,7 @@ function Basket({ basket, setBasket, basketPrice, setBasketPrice, basketQty, set
       </div>
       <p>Количество товаров: {basketQty}</p>
       <p>Общая стоимость товаров: {basketPrice}</p>
-      <ShowOrderButton/>
+      <ShowOrderButton />
     </div>
   );
 }
