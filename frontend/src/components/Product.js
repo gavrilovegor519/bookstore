@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-function Product({ id, image, title, price, setBasket, setBasketPrice, setBasketQty, basket, setMessage, setModalBox }) {
+function Product({ id, image, title, price, setBasket, setBasketPrice, setBasketQty, basket, setMessage, setModalBox, token }) {
 
   const product = {
     id: id,
@@ -28,12 +28,28 @@ function Product({ id, image, title, price, setBasket, setBasketPrice, setBasket
     }, 100)
   }
 
+  function AddToBasketButton() {
+    if (token !== null) {
+      return(
+        <>
+          <button className='buy' onClick={() => addToBasket()}>Купить</button>
+        </>
+      )
+    } else {
+      return(
+        <>
+          <p>Для добавления товара в корзину авторизуйтесь!</p>
+        </>
+      )
+    }
+  }
+
   return (
     <div className="Product">
       <img src={product.image} alt='Изображение товара' />
       <h1>{product.title}</h1>
       <p>{product.price} рублей</p>
-      <button className='buy' onClick={() => addToBasket()}>Купить</button>
+      <AddToBasketButton/>
     </div>
   );
 }

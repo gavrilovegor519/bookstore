@@ -21,7 +21,7 @@ function App() {
   const [message, setMessage] = useState('')
 
   const pages = {
-    Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket} setMessage={setMessage} setModalBox={setModalBox} />,
+    Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket} setMessage={setMessage} setModalBox={setModalBox} token={token} />,
     Basket: <Basket basket={basket} setBasket={setBasket} basketPrice={basketPrice} setBasketPrice={setBasketPrice} basketQty={basketQty} setBasketQty={setBasketQty} />,
     Cabinet: <Cabinet token={token} />
   }
