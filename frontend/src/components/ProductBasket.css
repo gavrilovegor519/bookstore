@@ -1,6 +1,6 @@
 .ProductBasket {
     width: 250px;
-    height: 450px;
+    height: 480px;
     padding: 30px;
     box-shadow: 0px 0px 5px 5px #dfdddf;
     margin: auto;
@@ -32,5 +32,26 @@
 }
 
 .ProductBasket .del:hover {
+    background-color: #78abd1;
+}
+
+.ProductBasket .basketQty {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.ProductBasket .basketQty button {
+    width: 30px;
+    border-style: none;
+    background-color: #aad7fa;
+    border-radius: 10px;
+    font-size: 16pt;
+}
+
+.ProductBasket .basketQty button:hover {
     background-color: #78abd1;
 }
