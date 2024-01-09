@@ -26,12 +26,12 @@
 
     .Header ul,
     .Header {
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
     }
 
     .Header {
-        height: 200px;
+        height: 250px;
     }
 }
