@@ -2,10 +2,10 @@ import React from 'react';
 import './Basket.css';
 import ProductBasket from '../components/ProductBasket';
 
-function Basket({ basket, setBasket, basketPrice, setBasketPrice, basketQty, setBasketQty }) {
+function Basket({ basket, setBasket, basketPrice, setBasketPrice, basketQty, setBasketQty, setModalBox }) {
   function ShowOrderButton() {
     if (basketQty > 0) {
-      return (<><button className="order">Оформить заказ</button></>)
+      return (<><button className="order" onClick={() => setModalBox('OrderBox')}>Оформить заказ</button></>)
     }
   }
 

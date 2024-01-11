@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Registration from './components/Registration';
 import Cabinet from './views/Cabinet';
 import MessageBox from './components/MessageBox';
+import OrderBox from './components/OrderBox';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
 
   const pages = {
     Main: <Main setBasket={setBasket} setBasketPrice={setBasketPrice} setBasketQty={setBasketQty} basket={basket} setMessage={setMessage} setModalBox={setModalBox} token={token} />,
-    Basket: <Basket basket={basket} setBasket={setBasket} basketPrice={basketPrice} setBasketPrice={setBasketPrice} basketQty={basketQty} setBasketQty={setBasketQty} />,
+    Basket: <Basket basket={basket} setBasket={setBasket} basketPrice={basketPrice} setBasketPrice={setBasketPrice} basketQty={basketQty} setBasketQty={setBasketQty} setModalBox={setModalBox} />,
     Cabinet: <Cabinet token={token} />
   }
 
@@ -30,7 +31,8 @@ function App() {
     none: null,
     Login: <ModalBox setModalBox={setModalBox}><Login setModalBox={setModalBox} setToken={setToken} setMessage={setMessage} /></ModalBox>,
     Registration: <ModalBox setModalBox={setModalBox}><Registration setModalBox={setModalBox} setMessage={setMessage} /></ModalBox>,
-    MessageBox: <ModalBox setModalBox={setModalBox}><MessageBox setModalBox={setModalBox} message={message} /></ModalBox>
+    MessageBox: <ModalBox setModalBox={setModalBox}><MessageBox setModalBox={setModalBox} message={message} /></ModalBox>,
+    OrderBox: <ModalBox setModalBox={setModalBox}><OrderBox setMessage={setMessage} setModalBox={setModalBox} setBasket={setBasket} setBasketQty={setBasketQty} setBasketPrice={setBasketPrice} /></ModalBox>
   }
 
   return (
