@@ -50,7 +50,7 @@ function Registration({ setModalBox, setMessage }) {
       <input id='email' placeholder='E-Mail' type='email' />
       <input id='login' placeholder='Логин' type='text' />
       <input id='pass' placeholder='Пароль' type='password' />
-      <button id='send' onClick={Reg}>Войти</button>
+      <button id='send' onClick={() => Reg()}>Войти</button>
       <p id='loginError'></p>
     </div>
   );

@@ -52,7 +52,7 @@ function Login({ setModalBox, setToken, setMessage }) {
       <h1>Логин:</h1>
       <input id='login' placeholder='Логин' type='text' />
       <input id='pass' placeholder='Пароль' type='password' />
-      <button id='send' onClick={Log}>Войти</button>
+      <button id='send' onClick={() => Log()}>Войти</button>
       <p id='loginError'></p>
     </div>
   );
