@@ -19,10 +19,14 @@
     border-radius: 10px;
 }
 
+.Cabinet p {
+    margin-bottom: 10px;
+}
+
 .Cabinet button {
     height: 30px;
     width: 300px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 10px;
     font-size: 14pt;
     background-color: #72bbf4;
