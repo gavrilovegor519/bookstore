@@ -8,7 +8,6 @@ const mongoose = require('mongoose')
 const { secret } = require('./config')
 const User = require('./models/User')
 const Product = require('./models/Product')
-const { jwtDecode } = require('jwt-decode')
 
 const app = express()
 
@@ -93,7 +92,7 @@ app.post('/user/changePassword', async (req, res) => {
     let user
 
     try {
-        user = await User.findOneAndUpdate({ login: jwtDecode(token).login },
+        user = await User.findOneAndUpdate({ login: jsonwebtoken.verify(token, secret).login },
             { password: password }, { returnOriginal: false })
 
         if (user === null) {
@@ -123,7 +122,7 @@ app.post('/user/changeEmail', async (req, res) => {
     let user
 
     try {
-        user = await User.findOneAndUpdate({ login: jwtDecode(token).login },
+        user = await User.findOneAndUpdate({ login: jsonwebtoken.verify(token, secret).login },
             { email: email }, { returnOriginal: false })
 
         if (user === null) {
