@@ -18,12 +18,25 @@ function Main({ setBasket, setBasketPrice, setBasketQty, basket, setMessage, set
       })
   }, [])
 
+  function AddProduct() {
+    if (token !== null) {
+      return (
+        <>
+          <button className='addProduct' onClick={() => setModalBox('AddProductBox')}>Добавить товар</button>
+        </>
+      )
+    }
+  }
+
   return (
     <div className="Main">
+      <AddProduct />
+      <div className='mainGrid'>
       {products.map((item) => <Product key={item._id} id={item._id} image={image}
         title={item.title} price={item.price} setBasket={setBasket}
         setBasketPrice={setBasketPrice} setBasketQty={setBasketQty}
         basket={basket} setMessage={setMessage} setModalBox={setModalBox} token={token} />)}
+      </div>
     </div>
   );
 }

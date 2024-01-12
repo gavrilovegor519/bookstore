@@ -10,6 +10,7 @@ import Registration from './components/Registration';
 import Cabinet from './views/Cabinet';
 import MessageBox from './components/MessageBox';
 import OrderBox from './components/OrderBox';
+import AddProductBox from './components/AddProductBox';
 
 function App() {
 
@@ -32,7 +33,8 @@ function App() {
     Login: <ModalBox setModalBox={setModalBox}><Login setModalBox={setModalBox} setToken={setToken} setMessage={setMessage} /></ModalBox>,
     Registration: <ModalBox setModalBox={setModalBox}><Registration setModalBox={setModalBox} setMessage={setMessage} /></ModalBox>,
     MessageBox: <ModalBox setModalBox={setModalBox}><MessageBox setModalBox={setModalBox} message={message} /></ModalBox>,
-    OrderBox: <ModalBox setModalBox={setModalBox}><OrderBox setMessage={setMessage} setModalBox={setModalBox} setBasket={setBasket} setBasketQty={setBasketQty} setBasketPrice={setBasketPrice} /></ModalBox>
+    OrderBox: <ModalBox setModalBox={setModalBox}><OrderBox setMessage={setMessage} setModalBox={setModalBox} setBasket={setBasket} setBasketQty={setBasketQty} setBasketPrice={setBasketPrice} /></ModalBox>,
+    AddProductBox: <ModalBox setModalBox={setModalBox}><AddProductBox setModalBox={setModalBox} setMessage={setMessage} /></ModalBox>
   }
 
   return (

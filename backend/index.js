@@ -187,4 +187,27 @@ const start = async () => {
     }
 }
 
+app.post('/products/add', async (req, res) => {
+    console.log(req.body)
+    const { title, price } = req.body
+    const product = new Product({ title, price })
+
+    try {
+        await product.save()
+    } catch (err) {
+        if (err && err.code !== 11000) {
+            res.json({
+                message: 'Неизвестная ошибка!'
+            })
+                .status(500)
+
+            return
+        }
+    }
+
+    res.json({
+        message: 'Товар успешно добавлен! Обновите страницу для получения изменений.'
+    })
+})
+
 start()
