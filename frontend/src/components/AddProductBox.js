@@ -46,7 +46,7 @@ function AddProductBox({ setModalBox, setMessage }) {
       <h1>Добавление товара</h1>
       <input id='title' placeholder='Название товара' type='text' />
       <input id='price' placeholder='Цена товара' type='text' />
-      <button id='send' onClick={() => AddProduct()}>Войти</button>
+      <button id='send' onClick={() => AddProduct()}>Добавить</button>
       <p id='addProductError'></p>
     </div>
   );
