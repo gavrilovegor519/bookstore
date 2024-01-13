@@ -1,5 +1,6 @@
 import React from 'react';
 import './Cabinet.css';
+import { jwtDecode } from 'jwt-decode';
 
 function Cabinet({ token }) {
     function changeEmail() {
@@ -31,7 +32,7 @@ function Cabinet({ token }) {
             .then((result) => result.json())
             .then((result) => {
                 console.log(result)
-                document.getElementById('emailMessage').innerText = "E-Mail успешно изменён!"
+                document.getElementById('emailMessage').innerText = result.message
             })
     }
 
@@ -62,7 +63,7 @@ function Cabinet({ token }) {
             .then((result) => result.json())
             .then((result) => {
                 console.log(result)
-                document.getElementById('passMessage').innerText = "Пароль успешно изменён!"
+                document.getElementById('passMessage').innerText = result.message
             })
     }
 
@@ -70,6 +71,7 @@ function Cabinet({ token }) {
     return (
         <div className="Cabinet">
             <h1>Личный кабинет</h1>
+            <p id='showEmail'>Ваш E-Mail: {jwtDecode(token).email}</p>
             <input id='email' placeholder='E-Mail' type='email' />
             <button id='sendEmail' onClick={changeEmail}>Сменить E-Mail</button>
             <p id='emailMessage'></p>
