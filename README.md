@@ -1,6 +1,6 @@
-# ReactShop
+# BookStore
 
-This is demo shop based on React.js as frontend, and Express + MongoDB as backend.
+This is demo book store based on React.js as frontend, and Express + MongoDB as backend.
 
 ## Available Scripts
 
