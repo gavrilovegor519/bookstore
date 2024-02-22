@@ -7,19 +7,20 @@
 .UserBox p {
     margin-right: 10px;
     margin-left: 10px;
+    color: #ffffff;
 }
 
 .UserBox button {
     width: 150px;
     height: 40px;
     margin: 5px;
-    background-color: #72bbf4;
+    background-color: #a04000;
     border-radius: 10px;
     border-style: none;
 }
 
 .UserBox button:hover {
-    background-color: #51aaef;
+    background-color: #6e2c00;
 }
 
 @media (max-width: 426px) {

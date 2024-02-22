@@ -6,13 +6,13 @@
     height: 50px;
     width: 200px;
     border-style: none;
-    background-color: #aad7fa;
+    background-color: #a04000;
     border-radius: 10px;
     font-size: 16pt;
 }
 
 .Main .addProduct:hover {
-    background-color: #78abd1;
+    background-color: #6e2c00;
 }
 
 .Main .mainGrid {

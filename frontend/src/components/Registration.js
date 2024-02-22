@@ -9,7 +9,7 @@ function Registration({ setModalBox, setMessage }) {
     const password = document.getElementById('pass').value
 
     const validEmail = email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)
-    const validLogin = login.match(/^[a-z0-9]+$/i)
+    const validLogin = login.match(/.+$/i)
 
     let message
 

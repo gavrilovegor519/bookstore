@@ -32,7 +32,7 @@ app.post('/registration', async (req, res) => {
     } catch (err) {
         if (err && err.code !== 11000) {
             res.json({
-                message: 'Неизвестная ошибка!'
+                message: 'Неизвестная ошибка.'
             })
                 .status(500)
 
@@ -42,10 +42,10 @@ app.post('/registration', async (req, res) => {
         //duplicate key
         if (err && err.code === 11000) {
             res.json({
-                message: 'Попытка создания дубликата!'
+                message: 'Не используйте повторно эти данные!'
             })
                 .status(400)
-            console.error('Попытка создания дубликата!')
+            console.error('Не используйте повторно эти данные!')
 
             return
         }
@@ -65,7 +65,7 @@ app.post('/login', async (req, res) => {
         user = await User.findOne({ login })
     } catch (err) {
         res.json({
-            message: 'Неизвестная ошибка!'
+            message: 'Неизвестная ошибка.'
         })
             .status(500)
 
@@ -73,7 +73,7 @@ app.post('/login', async (req, res) => {
     }
 
     if (!user) {
-        return res.status(400).json({ message: 'Пользователь не найден!' })
+        return res.status(400).json({ message: 'Пользователь отсутствует в базе.' })
     }
     if (user.password !== password) {
         return res.status(400).json({ message: 'Неверный логин или пароль!' })
@@ -97,13 +97,13 @@ app.post('/user/changePassword', async (req, res) => {
 
         if (user === null) {
             res.json({
-                message: 'Пользователь не найден!'
+                message: 'Пользователь отсутствует в базе.'
             })
                 .status(400)
         }
     } catch (err) {
         res.json({
-            message: 'Неизвестная ошибка!'
+            message: 'Неизвестная ошибка.'
         })
             .status(500)
 
@@ -127,14 +127,14 @@ app.post('/user/changeEmail', async (req, res) => {
 
         if (user === null) {
             res.json({
-                message: 'Пользователь не найден!'
+                message: 'Пользователь отсутствует в базе.'
             })
                 .status(400)
         }
     } catch (err) {
         if (err && err.code !== 11000) {
             res.json({
-                message: 'Неизвестная ошибка!'
+                message: 'Неизвестная ошибка.'
             })
                 .status(500)
 
@@ -144,10 +144,10 @@ app.post('/user/changeEmail', async (req, res) => {
         //duplicate key
         if (err && err.code === 11000) {
             res.json({
-                message: 'Попытка создания дубликата!'
+                message: 'Не используйте повторно эти данные!'
             })
                 .status(400)
-            console.error('Попытка создания дубликата!')
+            console.error('Не используйте повторно эти данные!')
 
             return
         }
@@ -166,7 +166,7 @@ app.get('/products', async (req, res) => {
         products = await Product.find()
     } catch (err) {
         res.json({
-            message: 'Неизвестная ошибка!'
+            message: 'Неизвестная ошибка.'
         })
             .status(500)
 
@@ -197,7 +197,7 @@ app.post('/products/add', async (req, res) => {
     } catch (err) {
         if (err && err.code !== 11000) {
             res.json({
-                message: 'Неизвестная ошибка!'
+                message: 'Неизвестная ошибка.'
             })
                 .status(500)
 
@@ -206,7 +206,7 @@ app.post('/products/add', async (req, res) => {
     }
 
     res.json({
-        message: 'Товар успешно добавлен! Обновите страницу для получения изменений.'
+        message: 'Товар успешно добавлен! Обновите страницу для того, чтобы получить изменения.'
     })
 })
 

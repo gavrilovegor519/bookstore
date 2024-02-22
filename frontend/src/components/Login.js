@@ -7,7 +7,7 @@ function Login({ setModalBox, setToken, setMessage }) {
     const login = document.getElementById('login').value
     const password = document.getElementById('pass').value
 
-    const validLogin = login.match(/^[a-z0-9]+$/i)
+    const validLogin = login.match(/.+$/i)
 
     let message
 

@@ -20,12 +20,12 @@
     width: auto;
     border-radius: 10px;
     font-size: 14pt;
-    background-color: #72bbf4;
+    background-color: #a04000;
     border-style: none;
 }
 
 .OrderBox button:hover {
-    background-color: #51aaef;
+    background-color: #6e2c00;
 }
 
 .OrderBox #orderError {
